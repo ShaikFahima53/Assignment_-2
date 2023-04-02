@@ -1,0 +1,87 @@
+1.) Count the number of Salesperson whose name begin with ‘a’/’A’.
+
+Query:-
+Select count(Sname) from salesperson where Sname like 'a%';
+
+Output:-
++--------------+
+| count(Sname) |
++--------------+
+|            1 |
++--------------+
+1 row in set (0.00 sec)
+
+
+
+2.) Display all the Salesperson whose all orders worth is more than Rs. 2000.
+
+Query:-
+ select Salespeople.Sname,salespeople.Snum,Orders.Amt
+    -> from salespeople inner join Orders
+    -> ON Salespeople.Snum = Orders.Snum
+    -> where OrderS.Amt > 2000;
+output:-
++--------+------+------+
+| Sname  | Snum | Amt  |
++--------+------+------+
+| Peel   | 1001 | 9892 |
+| Peel   | 1001 | 4273 |
+| Serres | 1002 | 5160 |
++--------+------+------+
+3 rows in set (0.00 sec)
+
+
+3.)Count the number of Salesperson belonging to Newyork.
+
+Query:-
+ Select count(sname), city from salespeople where city='newyork';
+
+Output:-
++--------------+---------+
+| count(sname) | city    |
++--------------+---------+
+|            1 | Newyork |
++--------------+---------+
+1 row in set (0.00 sec)
+
+
+4.)  Display the number of Salespeople belonging to London and belonging to Paris.
+
+Query:-
+
+Select count(Sname) from Salespeople Where city = 'london' or city = 'Paris';
+
+Output:-
+
++--------------+
+| count(Sname) |
++--------------+
+|            2 |
++--------------+
+1 row in set (0.00 sec)
+
+
+5.)Display the number of orders taken by each Salesperson and their date of orders.
+
+Query:-
+
+Select Salespeople.Snum,Salespeople.Sname,Orders.Onum,Orders.Odate
+    -> from salespeople left join orders
+    -> ON Salespeople.Snum = Orders.Snum;
+
+Output:-
++------+---------+------+-----------+
+| Snum | Sname   | Onum | Odate     |
++------+---------+------+-----------+
+| 1001 | Peel    | 3011 | 6-10-1990 |
+| 1001 | Peel    | 3008 | 5-10-1990 |
+| 1001 | Peel    | 3003 | 3-10-1990 |
+| 1002 | Serres  | 3010 | 6-10-1990 |
+| 1002 | Serres  | 3007 | 4-10-1990 |
+| 1002 | Serres  | 3005 | 3-10-1990 |
+| 1004 | Motika  | 3002 | 3-10-1990 |
+| 1007 | Rifkin  | 3006 | 3-10-1990 |
+| 1007 | Rifkin  | 3001 | 3-10-1990 |
+| 1003 | Axelrod | 3009 | 4-10-1990 |
++------+---------+------+-----------+
+10 rows in set (0.01 sec)
